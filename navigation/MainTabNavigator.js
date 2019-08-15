@@ -1,78 +1,74 @@
-import React from 'react';
-import { Platform } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import React from 'react'
+import { Platform } from 'react-native'
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation'
 
-import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import TabBarIcon from '../components/TabBarIcon'
+import DecksScreen from '../screens/DecksScreen'
+import AddDeckScreen from '../screens/AddDeckScreen'
+
+import Colors from '../constants/Colors'
 
 const config = Platform.select({
-  web: { headerMode: 'screen' },
-  default: {},
-});
+  ios: {
 
-const HomeStack = createStackNavigator(
-  {
-    Home: HomeScreen,
   },
-  config
-);
+  android: {
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+  },
+  default: {
+  },
+})
+
+const DecksStack = createStackNavigator(
+  {
+    Decks: DecksScreen,
+  },
+  {
+      headerMode: 'none',
+      header: null
+  }
+)
+
+DecksStack.navigationOptions = {
+  tabBarLabel: 'Decks',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
+      name='book'
     />
   ),
-};
+}
 
-HomeStack.path = '';
+DecksStack.path = ''
 
-const LinksStack = createStackNavigator(
+const AddDeckStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    AddDeck: AddDeckScreen,
   },
-  config
-);
-
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
-  ),
-};
-
-LinksStack.path = '';
-
-const SettingsStack = createStackNavigator(
   {
-    Settings: SettingsScreen,
-  },
-  config
-);
+      headerMode: 'none',
+      header: null
+  }
+)
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+AddDeckStack.navigationOptions = {
+  tabBarLabel: 'Add Deck',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon focused={focused} name='plus' />
   ),
-};
+}
 
-SettingsStack.path = '';
+AddDeckStack.path = ''
 
 const tabNavigator = createBottomTabNavigator({
-  HomeStack,
-  LinksStack,
-  SettingsStack,
-});
+  AddDeckStack: AddDeckStack,
+  HomeStack: DecksStack,
+}, {
+  tabBarOptions: {
+    activeTintColor: Colors.tintColor
+  }
+})
 
-tabNavigator.path = '';
+tabNavigator.path = ''
 
-export default tabNavigator;
+export default tabNavigator
