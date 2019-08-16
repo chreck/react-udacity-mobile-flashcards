@@ -9,7 +9,6 @@ import {
     TouchableOpacity,
     View,
 } from 'react-native'
-import { connect } from 'react-redux'
 
 import Colors from '../constants/Colors'
 

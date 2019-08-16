@@ -61,8 +61,8 @@ AddDeckStack.navigationOptions = {
 AddDeckStack.path = ''
 
 const tabNavigator = createBottomTabNavigator({
+  HomeStack: DecksStack,
   AddDeckStack: AddDeckStack,
-  HomeStack: DecksStack
 }, {
   tabBarOptions: {
     activeTintColor: Colors.tintColor

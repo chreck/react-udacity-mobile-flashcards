@@ -9,24 +9,23 @@ import {
     TouchableOpacity,
     View,
 } from 'react-native'
-import { connect } from 'react-redux'
 
 import Colors from '../constants/Colors'
-import CardText from './CardText'
+import Card from './Card'
 
-class Card extends React.Component {
+class CardText extends React.Component {
     render() {
         const { id, text, detail } = this.props
         return (
-            <CardText>
+            <Card>
                 <Text style={styles.text}>{text}</Text>
                 {detail && <Text style={styles.detail}>{detail}</Text>}
-            </CardText>
+            </Card>
         )
     }
 }
 
-export default Card
+export default CardText
 
 const styles = StyleSheet.create({
     text: {
