@@ -12,13 +12,16 @@ import {
 import { connect } from 'react-redux'
 
 import Colors from '../constants/Colors'
+import CardText from './CardText'
 
 class Card extends React.Component {
     render() {
+        const { id, text, detail } = this.props
         return (
-            <View style={styles.card}>
-                {this.props.children}
-            </View>
+            <CardText>
+                <Text style={styles.text}>{text}</Text>
+                {detail && <Text style={styles.detail}>{detail}</Text>}
+            </CardText>
         )
     }
 }
@@ -26,14 +29,11 @@ class Card extends React.Component {
 export default Card
 
 const styles = StyleSheet.create({
-    card: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderColor: Colors.cardBorder,
-        borderWidth: 0.5,
-        borderRadius: 3,
-        margin: 20,
-        padding: 20,
+    text: {
+        fontSize: 24,
     },
+    detail: {
+        fontSize: 18,
+        color: Colors.cardSubtitle,
+    }
 })

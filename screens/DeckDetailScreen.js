@@ -18,7 +18,7 @@ class Screen extends React.Component {
     render() {
         return (
             <ScrollView style={Styles.container}>
-                <Card id='asdfasdf' name='Deck1' amountOfCards='2' />
+                <Card id='asdfasdf' text='Deck1' detail='2 cards' />
                 <Button>Add Card</Button>
                 <Button>Start Quiz</Button>
                 <Button>Delete Deck</Button>

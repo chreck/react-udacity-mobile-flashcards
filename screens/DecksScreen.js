@@ -67,7 +67,7 @@ class Screen extends React.Component {
                 <BigTitle>Decks</BigTitle>
                 {data.map((entry) => {
                     return (
-                        <Card key={entry.id} id={entry.id} name={entry.name} amountOfCards={entry.amountOfCards} />
+                        <Card key={entry.id} id={entry.id} text={entry.name} detail={`${entry.amountOfCards} cards`} />
                     )
                 })}
             </ScrollView>
