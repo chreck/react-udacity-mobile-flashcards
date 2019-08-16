@@ -25,17 +25,20 @@ class DecksScreen extends React.Component {
         receive()
             .then((decks) => dispatch(receiveDecks(decks)))
             .then(() => {
-                this.setState({ready: true})
+                this.setState({ ready: true })
             })
     }
-    onDeckPress = (id) => {
-        console.log(id)
-        if(this.state.ready) {
-            this.props.navigation.navigate('DeckDetail')
-        }
+    onDeckPress = (title) => {
+        this.props.navigation.navigate({
+            routeName: 'DeckDetail',
+            params: {
+                title
+            }
+        })
     }
     render() {
         const { decks } = this.props
+        console.log(decks)
         return (
             <ScrollView style={Styles.container}>
                 <BigTitle>Decks</BigTitle>
@@ -43,7 +46,7 @@ class DecksScreen extends React.Component {
                     const { title, questions } = decks[entry]
                     const amountOfCards = questions.length
                     return (
-                        <TouchableOpacity key={title} onPress={() => {this.onDeckPress(title)}}>
+                        <TouchableOpacity key={title} onPress={() => { this.onDeckPress(title) }}>
                             <CardText
                                 text={title}
                                 detail={`${amountOfCards} cards`}

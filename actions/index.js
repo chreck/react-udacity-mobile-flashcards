@@ -17,17 +17,17 @@ export function addDeck(title) {
     }
 }
 
-export function removeDeck(key) {
+export function removeDeck(title) {
     return {
         type: REMOVE_DECK,
-        key
+        title
     }
 }
 
-export function addQuestion(key, question) {
+export function addQuestion(title, question) {
     return {
         type: ADD_QUESTION,
-        key,
+        title,
         question
     }
 }

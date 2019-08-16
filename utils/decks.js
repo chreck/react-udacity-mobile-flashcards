@@ -45,8 +45,8 @@ export function getDecks() {
  * take in a single id argument and
  * return the deck associated with that id. 
  */
-export function getDeck(id) {
-    return getDecks().then((decks) => decks[id])
+export function getDeck(title) {
+    return getDecks().then((decks) => (decks[title]))
 }
 
 /**
@@ -69,17 +69,16 @@ export function saveDeckTitle(title) {
  * with the associated title. 
  */
 export function addCardToDeck(title, card) {
-    return getDeck(title).then((deck) => (
-        AsyncStorage.mergeItem(QUIZ_STORAGE_KEY,
+    return getDeck(title).then((deck) => {
+        console.log('addCardToDeck')
+        console.log(deck)
+        return AsyncStorage.mergeItem(QUIZ_STORAGE_KEY,
             JSON.stringify({
-                [deck.title]: {
-                    ...[deck.title],
-                    questions: {
-                        ...[deck.title].questions,
-                        ...card
-                    }
+                [title]: {
+                    title,
+                    questions: deck.questions.concat([card])
                 },
             })
         )
-    ))
+    })
 }

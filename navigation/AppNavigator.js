@@ -29,13 +29,22 @@ const MainNavigator = createStackNavigator({
     }),
   },
   Quiz: {
-    screen: QuizScreen
+    screen: QuizScreen,
+    navigationOptions: ({ navigation }) => ({
+      headerTintColor: Colors.tintColor,
+    }),
   },
   QuizFinished: {
-    screen: QuizFinishedScreen
+    screen: QuizFinishedScreen,
+    navigationOptions: ({ navigation }) => ({
+      headerTintColor: Colors.tintColor,
+    }),
   },
   AddCard: {
-    screen: AddCardScreen
+    screen: AddCardScreen,
+    navigationOptions: ({ navigation }) => ({
+      headerTintColor: Colors.tintColor,
+    }),
   }
 }, drawConfig)
 

@@ -23,8 +23,8 @@ export function delDeck(key) {
     })
 }
 
-export function addQuestion({key, question, answer}) {
-    return addCardToDeck(key, {
+export function addQuestion({title, question, answer}) {
+    return addCardToDeck(title, {
         question,
         answer
     })

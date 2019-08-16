@@ -16,16 +16,16 @@ export default function decks(state = {}, action) {
                 },
             }
         case REMOVE_DECK:
-            return Object.keys(state).filter((d) => d.title !== action.key).reduce((obj, key) => {
+            return Object.keys(state).filter((d) => d.title !== action.title).reduce((obj, key) => {
                 obj[key] = state[key]
                 return obj
             }, {})
         case ADD_QUESTION:
             return {
                 ...state,
-                [action.key]: {
-                    ...state[action.key],
-                    questions: state[action.key].questions.concat(...action.question)
+                [action.title]: {
+                    ...state[action.title],
+                    questions: state[action.title].questions.concat([action.question])
                 }
             }
         default:
