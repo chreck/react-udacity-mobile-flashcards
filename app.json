@@ -17,6 +17,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "notification": {
+      "icon": "./assets/images/icon.png"
+    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -24,7 +27,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "ch.tnode.mobile-flashcards"
+    },
+    "android": {
+      "package": "ch.tnode.mobile-flashcards"
     }
   }
 }
