@@ -36,7 +36,7 @@ class Screen extends React.Component {
     }
     toHome = () => {
         this.props.navigation.dispatch(NavigationActions.back({
-          key: 'DecksScreen'
+          key: 'Decks'
         }))
       }
     render() {
