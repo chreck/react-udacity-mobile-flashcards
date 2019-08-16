@@ -19,8 +19,9 @@ class Screen extends React.Component {
         return (
             <ScrollView style={Styles.container}>
                 <QuestionText style={styles.text}>Does React Native work with Android?</QuestionText>
-                <Button>Correct</Button>
-                <Button>Incorrect</Button>
+                <Text style={styles.paging}>1 / 2</Text>
+                <Button style={styles.correctButton}>Correct</Button>
+                <Button style={styles.incorrectButton}>Incorrect</Button>
                 <Button>See Answer</Button>
             </ScrollView>
         )
@@ -33,4 +34,22 @@ const styles = StyleSheet.create({
     text: {
         textAlign: 'center'
     },
+    paging: {
+        flex: 1,
+        textAlign: 'center',
+        marginTop: 0,
+        marginBottom: 20,
+        marginLeft: 20,
+        marginRight: 20,
+        padding: 0,
+        color: Colors.pagingText,
+    },
+    correctButton: {
+        color: 'white',
+        backgroundColor: 'green',
+    },
+    incorrectButton: {
+        color: 'white',
+        backgroundColor: 'red'
+    }
 })

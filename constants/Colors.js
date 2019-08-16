@@ -14,4 +14,5 @@ export default {
   noticeText: '#fff',
   cardBorder: grayColor,
   cardSubtitle: gray2Color,
+  pagingText: gray2Color,
 }
