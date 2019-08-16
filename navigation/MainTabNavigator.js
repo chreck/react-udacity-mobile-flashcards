@@ -33,8 +33,6 @@ const routeConfigMap = {
 }
 
 const drawConfig = {
-  headerMode: 'none',
-  header: null,
   tabBarOptions: {
     activeTintColor: Colors.tintColor
   }

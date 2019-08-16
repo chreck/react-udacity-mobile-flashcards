@@ -14,7 +14,12 @@ import Button from '../components/Button'
 import Card from '../components/Card'
 import Styles from '../constants/Styles'
 
-class Screen extends React.Component {
+class DeckDetailScreen extends React.Component {
+    static navigationOptions = ({ navigation }) => {
+        return {
+            headerMode: 'float'
+        }
+    }
     render() {
         return (
             <ScrollView style={Styles.container}>
@@ -27,4 +32,4 @@ class Screen extends React.Component {
     }
 }
 
-export default Screen
+export default DeckDetailScreen

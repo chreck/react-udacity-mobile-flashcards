@@ -10,8 +10,6 @@ import AddCardScreen from '../screens/AddCardScreen'
 import Colors from '../constants/Colors'
 
 const drawConfig = {
-  headerMode: 'none',
-  header: null,
   tabBarOptions: {
     activeTintColor: Colors.tintColor
   }
@@ -19,10 +17,16 @@ const drawConfig = {
 
 const MainNavigator = createStackNavigator({
   Home: {
-    screen: MainTabNavigator
+    screen: MainTabNavigator,
+    navigationOptions: ({ navigation }) => ({
+      header: null,
+    }),
   },
   DeckDetail: {
-    screen: DeckDetailScreen
+    screen: DeckDetailScreen,
+    navigationOptions: ({ navigation }) => ({
+      headerTintColor: Colors.tintColor,
+    }),
   },
   Quiz: {
     screen: QuizScreen
