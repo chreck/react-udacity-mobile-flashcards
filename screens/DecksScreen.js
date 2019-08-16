@@ -11,6 +11,7 @@ import {
 
 import Colors from '../constants/Colors'
 import BigTitle from '../components/BigTitle'
+import Card from '../components/Card'
 
 class Screen extends React.Component {
     render() {
@@ -65,10 +66,7 @@ class Screen extends React.Component {
                 <BigTitle>Decks</BigTitle>
                 {data.map((entry) => {
                     return (
-                        <View key={entry.id} style={styles.card}>
-                            <Text style={styles.cardTitle}>{entry.name}</Text>
-                            <Text style={styles.cardInfo}>{entry.amountOfCards} cards</Text>
-                        </View>
+                        <Card key={entry.id} id={entry.id} name={entry.name} amountOfCards={entry.amountOfCards} />
                     )
                 })}
             </ScrollView>
@@ -84,21 +82,5 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
     },
-    card: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderColor: Colors.cardBorder,
-        borderWidth: 0.5,
-        borderRadius: 3,
-        margin: 20,
-        padding: 20,
-    },
-    cardTitle: {
-        fontSize: 24,
-    },
-    cardInfo: {
-        fontSize: 18,
-        color: Colors.cardSubtitle,
-    }
+
 })

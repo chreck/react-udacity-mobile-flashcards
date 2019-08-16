@@ -10,19 +10,17 @@ import {
     View,
 } from 'react-native'
 
-import Colors from '../constants/Colors'
-import BigTitle from '../components/BigTitle'
 import Button from '../components/Button'
-import TextInputField from '../components/TextInputField'
+import Card from '../components/Card'
 
 class Screen extends React.Component {
     render() {
         return (
             <ScrollView style={styles.container}>
-                <BigTitle>Add Deck</BigTitle>
-                <TextInputField placeholder='Question' />
-                <TextInputField placeholder='Answer' />
-                <Button>Submit</Button>
+                <Card id='asdfasdf' name='Deck1' amountOfCards='2' />
+                <Button>Add Card</Button>
+                <Button>Start Quiz</Button>
+                <Button>Delete Deck</Button>
             </ScrollView>
         )
     }
