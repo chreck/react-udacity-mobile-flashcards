@@ -8,67 +8,38 @@ import AddDeckScreen from '../screens/AddDeckScreen'
 
 import Colors from '../constants/Colors'
 
-const config = Platform.select({
-  ios: {
-
+const routeConfigMap = {
+  Decks : {
+    screen: DecksScreen,
+    navigationOptions : {
+      tabBarLabel: 'Decks',
+      tabBarIcon: ({ focused }) => (
+        <TabBarIcon
+          focused={focused}
+          name='book'
+        />
+      ),
+    },
   },
-  android: {
-
-  },
-  default: {
-  },
-})
-
-const DecksStack = createStackNavigator(
-  {
-    Decks: DecksScreen,
-  },
-  {
-      headerMode: 'none',
-      header: null
+  AddDeck: {
+    screen: AddDeckScreen,
+    navigationOptions : {
+      tabBarLabel: 'Add Deck',
+      tabBarIcon: ({ focused }) => (
+        <TabBarIcon focused={focused} name='plus' />
+      ),
+    },
   }
-)
-
-DecksStack.navigationOptions = {
-  tabBarLabel: 'Decks',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name='book'
-    />
-  ),
 }
 
-DecksStack.path = ''
-
-const AddDeckStack = createStackNavigator(
-  {
-    AddDeck: AddDeckScreen,
-  },
-  {
-      headerMode: 'none',
-      header: null
-  }
-)
-
-AddDeckStack.navigationOptions = {
-  tabBarLabel: 'Add Deck',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name='plus' />
-  ),
-}
-
-AddDeckStack.path = ''
-
-const tabNavigator = createBottomTabNavigator({
-  HomeStack: DecksStack,
-  AddDeckStack: AddDeckStack,
-}, {
+const drawConfig = {
+  headerMode: 'none',
+  header: null,
   tabBarOptions: {
     activeTintColor: Colors.tintColor
   }
-})
+}
 
-tabNavigator.path = ''
+const tabNavigator = createBottomTabNavigator(routeConfigMap, drawConfig)
 
 export default tabNavigator

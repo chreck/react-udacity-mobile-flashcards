@@ -10,7 +10,10 @@ export default function decks(state = {}, action) {
         case ADD_DECK:
             return {
                 ...state,
-                ...action.deck
+                [action.title]: {
+                    title: action.title,
+                    questions: []
+                },
             }
         case REMOVE_DECK:
             return Object.keys(state).filter((d) => d.title !== action.key).reduce((obj, key) => {

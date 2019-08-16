@@ -16,7 +16,7 @@ import BigTitle from '../components/BigTitle'
 import CardText from '../components/CardText'
 import Styles from '../constants/Styles'
 
-class Screen extends React.Component {
+class DecksScreen extends React.Component {
     componentDidMount() {
         const { dispatch } = this.props
         receive()
@@ -27,7 +27,7 @@ class Screen extends React.Component {
         return (
             <ScrollView style={Styles.container}>
                 <BigTitle>Decks</BigTitle>
-                {Object.keys(decks).map((entry) => {
+                {Object.keys(decks).reverse().map((entry) => {
                     const { title, questions } = decks[entry]
                     const amountOfCards = questions.length
                     return (
@@ -45,4 +45,4 @@ function mapStateToProps(decks) {
     }
 }
 
-export default connect(mapStateToProps)(Screen)
+export default connect(mapStateToProps)(DecksScreen)

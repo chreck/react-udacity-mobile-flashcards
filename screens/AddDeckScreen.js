@@ -9,6 +9,11 @@ import {
     TouchableOpacity,
     View,
 } from 'react-native'
+import { connect } from 'react-redux'
+import { NavigationActions } from 'react-navigation'
+
+import { addDeck } from '../utils/api'
+import { addDeck as actionAddDeck } from '../actions'
 
 import Colors from '../constants/Colors'
 import Styles from '../constants/Styles'
@@ -17,15 +22,33 @@ import Button from '../components/Button'
 import TextInputField from '../components/TextInputField'
 
 class Screen extends React.Component {
+    state = {
+        name: ''
+    }
+    onSubmit = () => {
+        this.props.dispatch(actionAddDeck(this.state.name))
+        addDeck(this.state.name)
+        this.toHome()
+        this.setState({ name : '' })
+    }
+    handleNameChange = (text) => {
+        this.setState({ name: text })
+    }
+    toHome = () => {
+        this.props.navigation.dispatch(NavigationActions.back({
+          key: 'DecksScreen'
+        }))
+      }
     render() {
+        const { name } = this.state
         return (
             <ScrollView style={Styles.container}>
                 <BigTitle>Add Deck</BigTitle>
-                <TextInputField placeholder='Deck Name' />
-                <Button>Create Deck</Button>
+                <TextInputField value={name} onChangeText={this.handleNameChange} placeholder='Deck Name' />
+                <Button onPress={this.onSubmit}>Create Deck</Button>
             </ScrollView>
         )
     }
 }
 
-export default Screen
+export default connect()(Screen)

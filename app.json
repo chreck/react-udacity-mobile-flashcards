@@ -28,10 +28,10 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "ch.tnode.mobile_flashcards"
+      "bundleIdentifier": "ch.tnode.mobile.flashcards"
     },
     "android": {
-      "package": "ch.tnode.mobile_flashcards"
+      "package": "ch.tnode.mobile.flashcards"
     }
   }
 }
