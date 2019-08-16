@@ -12,6 +12,7 @@ import {
 import Colors from '../constants/Colors'
 import BigTitle from '../components/BigTitle'
 import Card from '../components/Card'
+import Styles from '../constants/Styles'
 
 class Screen extends React.Component {
     render() {
@@ -62,7 +63,7 @@ class Screen extends React.Component {
             }
         ]
         return (
-            <ScrollView style={styles.container}>
+            <ScrollView style={Styles.container}>
                 <BigTitle>Decks</BigTitle>
                 {data.map((entry) => {
                     return (
@@ -75,12 +76,3 @@ class Screen extends React.Component {
 }
 
 export default Screen
-
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-    },
-
-})

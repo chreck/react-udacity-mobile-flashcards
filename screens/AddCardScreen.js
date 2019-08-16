@@ -20,9 +20,10 @@ class Screen extends React.Component {
     render() {
         return (
             <ScrollView style={Styles.container}>
-                <BigTitle>Add Deck</BigTitle>
-                <TextInputField placeholder='Deck Name' />
-                <Button>Create Deck</Button>
+                <BigTitle>Add Card</BigTitle>
+                <TextInputField placeholder='Question' />
+                <TextInputField placeholder='Answer' />
+                <Button>Submit</Button>
             </ScrollView>
         )
     }
