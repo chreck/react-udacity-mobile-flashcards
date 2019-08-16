@@ -15,7 +15,7 @@ import Card from './Card'
 
 class CardText extends React.Component {
     render() {
-        const { id, text, detail } = this.props
+        const { text, detail } = this.props
         return (
             <Card>
                 <Text style={styles.text}>{text}</Text>

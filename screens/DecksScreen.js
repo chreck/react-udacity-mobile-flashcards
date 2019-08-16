@@ -11,16 +11,28 @@ import {
 import { connect } from 'react-redux'
 
 import { receive } from '../utils/api'
-import {receiveDecks } from '../actions'
+import { receiveDecks } from '../actions'
 import BigTitle from '../components/BigTitle'
 import CardText from '../components/CardText'
 import Styles from '../constants/Styles'
 
 class DecksScreen extends React.Component {
+    state = {
+        ready: false,
+    }
     componentDidMount() {
         const { dispatch } = this.props
         receive()
-        .then((decks) => dispatch(receiveDecks(decks)))
+            .then((decks) => dispatch(receiveDecks(decks)))
+            .then(() => {
+                this.setState({ready: true})
+            })
+    }
+    onDeckPress = (id) => {
+        console.log(id)
+        if(this.state.ready) {
+            this.props.navigation.navigate('DeckDetail')
+        }
     }
     render() {
         const { decks } = this.props
@@ -31,7 +43,12 @@ class DecksScreen extends React.Component {
                     const { title, questions } = decks[entry]
                     const amountOfCards = questions.length
                     return (
-                        <CardText key={title} id={title} text={title} detail={`${amountOfCards} cards`} />
+                        <TouchableOpacity key={title} onPress={() => {this.onDeckPress(title)}}>
+                            <CardText
+                                text={title}
+                                detail={`${amountOfCards} cards`}
+                            />
+                        </TouchableOpacity>
                     )
                 })}
             </ScrollView>
