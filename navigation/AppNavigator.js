@@ -4,7 +4,6 @@ import { createAppContainer, createStackNavigator } from 'react-navigation'
 import MainTabNavigator from './MainTabNavigator'
 import DeckDetailScreen from '../screens/DeckDetailScreen'
 import QuizScreen from '../screens/QuizScreen'
-import QuizFinishedScreen from '../screens/QuizFinishedScreen'
 import AddCardScreen from '../screens/AddCardScreen'
 
 import Colors from '../constants/Colors'
@@ -30,12 +29,6 @@ const MainNavigator = createStackNavigator({
   },
   Quiz: {
     screen: QuizScreen,
-    navigationOptions: ({ navigation }) => ({
-      headerTintColor: Colors.tintColor,
-    }),
-  },
-  QuizFinished: {
-    screen: QuizFinishedScreen,
     navigationOptions: ({ navigation }) => ({
       headerTintColor: Colors.tintColor,
     }),
