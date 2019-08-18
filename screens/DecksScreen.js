@@ -2,6 +2,7 @@ import React from 'react'
 import {
     ScrollView,
     TouchableOpacity,
+    Text
 } from 'react-native'
 import { connect } from 'react-redux'
 
@@ -38,6 +39,7 @@ class DecksScreen extends React.Component {
         return (
             <ScrollView style={Styles.container}>
                 <BigTitle>Decks</BigTitle>
+                {Object.keys(decks).length === 0 && <Text style={{flex: 1, textAlign: 'center'}}>No decks stored yet. Please add a deck.</Text>}
                 {Object.keys(decks).reverse().map((entry) => {
                     const { title, questions } = decks[entry]
                     const amountOfCards = questions.length

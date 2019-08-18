@@ -3,12 +3,10 @@ import {
     ScrollView,
 } from 'react-native'
 import { connect } from 'react-redux'
-import { NavigationActions } from 'react-navigation'
 
 import { addDeck } from '../utils/api'
 import { addDeck as actionAddDeck } from '../actions'
 
-import Colors from '../constants/Colors'
 import Styles from '../constants/Styles'
 import BigTitle from '../components/BigTitle'
 import Button from '../components/Button'

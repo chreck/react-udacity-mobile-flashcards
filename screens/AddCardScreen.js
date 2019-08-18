@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 
 import { addQuestion } from '../utils/api'
 import { addQuestion as actionAddQuestion } from '../actions'
-import Colors from '../constants/Colors'
 import Styles from '../constants/Styles'
 import BigTitle from '../components/BigTitle'
 import Button from '../components/Button'

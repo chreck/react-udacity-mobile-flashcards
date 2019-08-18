@@ -4,9 +4,8 @@ import {
     Alert
 } from 'react-native'
 import { connect } from 'react-redux'
-import { NavigationActions } from 'react-navigation'
 
-import { delDeck, receive } from '../utils/api'
+import { delDeck } from '../utils/api'
 import { removeDeck as actionDelDeck } from '../actions'
 
 import Button from '../components/Button'
