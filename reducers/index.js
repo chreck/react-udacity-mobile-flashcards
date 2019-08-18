@@ -16,7 +16,8 @@ export default function decks(state = {}, action) {
                 },
             }
         case REMOVE_DECK:
-            return Object.keys(state).filter((d) => d.title !== action.title).reduce((obj, key) => {
+            return Object.keys(state).filter((d) => {
+                return d !== action.title}).reduce((obj, key) => {
                 obj[key] = state[key]
                 return obj
             }, {})
