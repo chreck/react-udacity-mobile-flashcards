@@ -29,14 +29,20 @@ class Screen extends React.Component {
         this.props.dispatch(actionAddDeck(this.state.name))
         addDeck(this.state.name)
         this.toHome()
-        this.setState({ name : '' })
+        this.setState({ name: '' })
     }
     handleNameChange = (text) => {
         this.setState({ name: text })
     }
     toHome = () => {
-        this.props.navigation.navigate('Decks')
-      }
+        const title = this.state.name
+        this.props.navigation.navigate({
+            routeName: 'DeckDetail',
+            params: {
+                title
+            }
+        })
+    }
     render() {
         const { name } = this.state
         return (
