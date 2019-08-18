@@ -32,13 +32,14 @@ class DeckDetailScreen extends React.Component {
     }
     onStartQuiz = () => {
         console.log('onStartQuiz')
-        if(this.props.deck.questions.length == 0) {
+        const { deck, navigation, title } = this.props
+        if(deck.questions.length == 0) {
             Alert.alert('Sorry, you can not take the quiz, you do not have any card saved yet.')
         } else {
-            this.props.navigation.navigate({
+            navigation.navigate({
                 routeName: 'Quiz',
                 params: {
-                    title,
+                    title
                 }
             })
         }
