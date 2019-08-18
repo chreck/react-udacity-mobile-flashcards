@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native'
-import { getDecks, getDeck, saveDeckTitle, addCardToDeck } from './decks'
+import { getDecks, getDeck, saveDeckTitle, addCardToDeck, QUIZ_STORAGE_KEY } from './decks'
 
 export function receive() {
     return getDecks()
@@ -14,12 +14,12 @@ export function addDeck(name) {
 }
 
 export function delDeck(key) {
-    return AsyncStorage.getItem(Decks.QUIZ_STORAGE_KEY)
+    return AsyncStorage.getItem(QUIZ_STORAGE_KEY)
     .then((results) => {
         const data = JSON.parse(results)
         data[key] = undefined
         delete data[key]
-        AsyncStorage.setItem(Decks.QUIZ_STORAGE_KEY, JSON.stringify(data))
+        AsyncStorage.setItem(QUIZ_STORAGE_KEY, JSON.stringify(data))
     })
 }
 
