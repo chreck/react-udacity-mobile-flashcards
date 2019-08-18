@@ -1,13 +1,6 @@
 import React from 'react'
 import {
-    Image,
-    Platform,
     ScrollView,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
     Alert
 } from 'react-native'
 import { connect } from 'react-redux'
