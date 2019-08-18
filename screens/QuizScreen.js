@@ -10,6 +10,7 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 
+import { setLocalNotification, clearLocalNotification } from '../utils/helpers'
 import Colors from '../constants/Colors'
 import QuestionText from '../components/QuestionText'
 import Button from '../components/Button'
@@ -68,6 +69,8 @@ class QuizScreen extends React.Component {
         const flipCardButtonText = showAnswer ? 'Show Question' : 'Show Answer'
         const isLastQuestion = current > amountOfCards
         if (isLastQuestion) {
+            clearLocalNotification()
+                .then(() => { setLocalNotification({ tomorrow: true }) })
             return (
                 <ScrollView style={Styles.container}>
                     <BigTitle>Quiz Finished</BigTitle>

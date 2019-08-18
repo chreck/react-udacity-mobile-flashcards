@@ -31,7 +31,6 @@ class DeckDetailScreen extends React.Component {
         })
     }
     onStartQuiz = () => {
-        console.log('onStartQuiz')
         const { deck, navigation, title } = this.props
         if(deck.questions.length == 0) {
             Alert.alert('Sorry, you can not take the quiz, you do not have any card saved yet.')

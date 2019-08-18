@@ -10,6 +10,7 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 
+import { setLocalNotification } from '../utils/helpers'
 import { receive } from '../utils/api'
 import { receiveDecks } from '../actions'
 import BigTitle from '../components/BigTitle'
@@ -21,6 +22,7 @@ class DecksScreen extends React.Component {
         ready: false,
     }
     componentDidMount() {
+        setLocalNotification({tomorrow: false})
         const { dispatch } = this.props
         receive()
             .then((decks) => dispatch(receiveDecks(decks)))
