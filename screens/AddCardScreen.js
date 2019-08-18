@@ -37,6 +37,10 @@ class Screen extends React.Component {
         dispatch(actionAddQuestion(title, {question, answer}))
         addQuestion({title, question, answer})
         Alert.alert('Card added')
+        this.setState({
+            question: '',
+            answer: ''
+        })
     }
     render() {
         const { question, answer } = this.state
