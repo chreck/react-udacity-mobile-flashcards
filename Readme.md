@@ -1,10 +1,10 @@
 # Flashcards Project
 
-This repo is the third project in the [React Nanodegree program](https://www.udacity.com/course/react-nanodegree--nd019).
+This repo is the fifth project in the [React Nanodegree program](https://www.udacity.com/course/react-nanodegree--nd019).
 
 ## Project Setup
 
-* clone the Project
+* clone the project
 * install the dependencies - `npm install`
 * run it on iOS/Android device or simulator/emulator with `yarn start` or `npm start`
 
