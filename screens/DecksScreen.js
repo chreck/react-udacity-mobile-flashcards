@@ -38,7 +38,6 @@ class DecksScreen extends React.Component {
     }
     render() {
         const { decks } = this.props
-        console.log(decks)
         return (
             <ScrollView style={Styles.container}>
                 <BigTitle>Decks</BigTitle>

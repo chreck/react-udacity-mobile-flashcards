@@ -70,8 +70,6 @@ export function saveDeckTitle(title) {
  */
 export function addCardToDeck(title, card) {
     return getDeck(title).then((deck) => {
-        console.log('addCardToDeck')
-        console.log(deck)
         return AsyncStorage.mergeItem(QUIZ_STORAGE_KEY,
             JSON.stringify({
                 [title]: {
