@@ -8,6 +8,7 @@ import {
     TextInput,
     TouchableOpacity,
     View,
+    Alert
 } from 'react-native'
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
@@ -31,6 +32,16 @@ class DeckDetailScreen extends React.Component {
     }
     onStartQuiz = () => {
         console.log('onStartQuiz')
+        if(this.props.deck.questions.length == 0) {
+            Alert.alert('Sorry, you can not take the quiz, you do not have any card saved yet.')
+        } else {
+            this.props.navigation.navigate({
+                routeName: 'Quiz',
+                params: {
+                    title,
+                }
+            })
+        }
     }
     onDeleteDeck = () => {
         const { title, dispatch } = this.props
