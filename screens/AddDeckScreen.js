@@ -21,7 +21,7 @@ import BigTitle from '../components/BigTitle'
 import Button from '../components/Button'
 import TextInputField from '../components/TextInputField'
 
-class Screen extends React.Component {
+class AddDeckScreen extends React.Component {
     state = {
         name: ''
     }
@@ -55,4 +55,4 @@ class Screen extends React.Component {
     }
 }
 
-export default connect()(Screen)
+export default connect()(AddDeckScreen)

@@ -20,7 +20,7 @@ import BigTitle from '../components/BigTitle'
 import Button from '../components/Button'
 import TextInputField from '../components/TextInputField'
 
-class Screen extends React.Component {
+class AddCardScreen extends React.Component {
     static navigationOptions = ({ navigation }) => {
         const { title } = navigation.state.params
         return {
@@ -62,4 +62,4 @@ function mapStateToProps(decks, { navigation }) {
     }
 }
 
-export default connect(mapStateToProps)(Screen)
+export default connect(mapStateToProps)(AddCardScreen)
