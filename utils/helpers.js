@@ -46,16 +46,24 @@ export function setLocalNotification({tomorrow}) {
                             date.setHours(20)
                             date.setMinutes(0)
 
+                            let repeat = 'day'
                             if (__DEV__) {
+                                console.log('dev local notification setup')
                                 date = new Date()
                                 date.setTime(now.getTime() + 1000 * 10) // in 10 seconds
+                                repeat = 'minute'
+                            } else {
+                                console.log('prod local notification setup')
                             }
+                            console.log('now UTC: ' + now.toLocaleString('en-US', { timeZone: 'UTC' }))
+                            console.log('set UTC: ' + date.toLocaleString('en-US', { timeZone: 'UTC' }))
+                            console.log('repeat every ' + repeat)
 
                             Notifications.scheduleLocalNotificationAsync(
                                 createNotification(),
                                 {
                                     time: date,
-                                    repeat: 'day',
+                                    repeat,
                                 }
                             )
 
