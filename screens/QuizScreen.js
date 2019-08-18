@@ -25,18 +25,29 @@ class QuizScreen extends React.Component {
     }
     state = {
         correct: 0,
-        incorrect: 0,
         current: 1,
         showAnswer: false,
     }
     onCorrectClicked = () => {
-        this.setState({ ...this.state, correct: this.state.correct+1, current: this.state.current+1 })
+        this.setState({
+            ...this.state,
+            correct: this.state.correct + 1,
+            showAnswer: false,
+            current: this.state.current + 1
+        })
     }
     onIncorrectClicked = () => {
-        this.setState({ ...this.state, incorrect: this.state.incorrect+1, current: this.state.current+1 })
+        this.setState({
+            ...this.state,
+            current: this.state.current + 1,
+            showAnswer: false
+        })
     }
     onFlipCardClicked = () => {
-        this.setState({ ...this.state, showAnswer: !this.state.showAnswer })
+        this.setState({
+            ...this.state,
+            showAnswer: !this.state.showAnswer
+        })
     }
     restartQuiz = () => {
         this.setState({
@@ -44,7 +55,7 @@ class QuizScreen extends React.Component {
             incorrect: 0,
             current: 1,
             showAnswer: false,
-         })
+        })
     }
     render() {
         const { deck } = this.props
@@ -56,11 +67,11 @@ class QuizScreen extends React.Component {
         const text = showAnswer ? currentQuestion.answer : currentQuestion.question
         const flipCardButtonText = showAnswer ? 'Show Question' : 'Show Answer'
         const isLastQuestion = current > amountOfCards
-        if(isLastQuestion) {
+        if (isLastQuestion) {
             return (
                 <ScrollView style={Styles.container}>
                     <BigTitle>Quiz Finished</BigTitle>
-                    <Text style={styles.text}>You had {Math.round(correct/amountOfCards*100)}% correct of all questions.</Text>
+                    <Text style={styles.text}>You had {Math.round(correct / amountOfCards * 100)}% correct of all questions.</Text>
                     <Button onPress={this.restartQuiz}>Restart Quiz</Button>
                 </ScrollView>
             )
@@ -69,9 +80,9 @@ class QuizScreen extends React.Component {
             <ScrollView style={Styles.container}>
                 <QuestionText style={styles.text}>{text}</QuestionText>
                 <Text style={styles.paging}>{current} / {amountOfCards}</Text>
+                <Button onPress={this.onFlipCardClicked}>{flipCardButtonText}</Button>
                 <Button onPress={this.onCorrectClicked} style={styles.correctButton}>Correct</Button>
                 <Button onPress={this.onIncorrectClicked} style={styles.incorrectButton}>Incorrect</Button>
-                <Button onPress={this.onFlipCardClicked}>{flipCardButtonText}</Button>
             </ScrollView>
         )
     }
